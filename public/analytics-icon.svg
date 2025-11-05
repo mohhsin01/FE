@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#b794f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff6b9d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Chart bars - vertically centered for better alignment with text -->
+  <rect x="4" y="18" width="4" height="8" rx="1" fill="url(#grad1)"/>
+  <rect x="9" y="14" width="4" height="12" rx="1" fill="url(#grad1)"/>
+  <rect x="14" y="10" width="4" height="16" rx="1" fill="url(#grad1)"/>
+  <rect x="19" y="16" width="4" height="10" rx="1" fill="url(#grad1)"/>
+  <rect x="24" y="12" width="4" height="14" rx="1" fill="url(#grad1)"/>
+  
+  <!-- Trend line -->
+  <path d="M 4 18 Q 9 14, 14 10 T 24 12" stroke="url(#grad1)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg>
+
