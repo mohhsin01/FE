@@ -1,5 +1,37 @@
-# Vue 3 + Vite
+# Sales Insights Dashboard (Frontend)
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This Repo contains the Vue 3 interface for the Sales Insights Dashboard. It talks to a REST API at `http://localhost:8080/api`.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## Requirements
+
+- Node.js 18 or newer (LTS is fine) – download from [nodejs.org](https://nodejs.org)
+- npm 9 or newer (bundled with Node.js)
+
+## Run the frontend
+
+### 1. Clone the repo
+```bash
+git clone <repo-url>
+```
+
+### 2. Enter the frontend folder
+```bash
+cd FE
+```
+
+### 3. Install dependencies
+```bash
+npm install
+```
+
+### 4. Install axios (already listed in package.json, but run again if needed)
+```bash
+npm install axios
+```
+
+### 5. Start the dev server
+```bash
+npm run dev
+```
+
+The app loads at `http://localhost:5173`. Make sure the backend is running on `http://localhost:8080` so the dashboard can fetch data.

@@ -20,7 +20,6 @@
       </div>
     </div>
 
-    <!-- Seller Selection Dropdown -->
     <div class="input-section">
       <div class="input-header">
         <span class="input-icon">👤</span>
@@ -50,7 +49,6 @@
       </div>
     </div>
 
-    <!-- Error Message -->
     <div v-if="error" class="error-message">
       <div class="error-icon">⚠️</div>
       <div class="error-content">
@@ -59,15 +57,13 @@
       </div>
     </div>
 
-    <!-- Loading State -->
     <div v-if="loading" class="loading-container">
       <div class="spinner"></div>
       <p>Fetching seller data...</p>
     </div>
 
-    <!-- Seller Summary Data -->
     <div v-if="summary && !loading" class="summary-container">
-      <!-- Metrics Cards -->
+     
       <div class="metrics-section-title">
         <div class="section-title-content">
           <div class="section-icon">
@@ -145,7 +141,6 @@
         </div>
       </div>
 
-      <!-- Alerts Section -->
       <div v-if="summary.alerts && summary.alerts.length > 0" class="alerts-section">
         <div class="alerts-header">
           <div class="alerts-title-wrapper">
@@ -170,7 +165,6 @@
         </div>
       </div>
 
-      <!-- No Alerts Message -->
       <div v-else class="no-alerts">
         <div class="no-alerts-icon">✅</div>
         <h3>All Clear!</h3>
@@ -178,7 +172,6 @@
       </div>
     </div>
 
-    <!-- Empty State -->
     <div v-if="!summary && !loading && !error" class="empty-state">
       <p>Select a seller from the dropdown above to view performance metrics</p>
     </div>
@@ -197,7 +190,7 @@ const sellersLoading = ref(false);
 const error = ref(null);
 const errorMessage = ref(null);
 
-// Load sellers on component mount
+
 onMounted(async () => {
   await loadSellers();
 });
@@ -205,13 +198,13 @@ onMounted(async () => {
 const loadSellers = async () => {
   sellersLoading.value = true;
   try {
-    // Show sellers 1-10 in dropdown
+
     sellers.value = Array.from({ length: 10 }, (_, i) => ({
       id: i + 1,
       name: `Seller ${i + 1}`,
     }));
   } catch (err) {
-    // Fallback to hardcoded list if something goes wrong
+
     sellers.value = Array.from({ length: 10 }, (_, i) => ({
       id: i + 1,
       name: `Seller ${i + 1}`,
@@ -234,7 +227,7 @@ const fetchSellerSummary = async () => {
   summary.value = null;
 
   try {
-    // Convert sellerId to number to ensure proper API call
+ 
     const sellerId = Number(selectedSellerId.value);
     const result = await getSellerSummary(sellerId);
 
@@ -243,7 +236,7 @@ const fetchSellerSummary = async () => {
       error.value = null;
       errorMessage.value = null;
     } else {
-      // Check if seller doesn't exist (404 error)
+  
       if (result.status === 404 || result.error === 'Seller not found') {
         error.value = 'Seller Not Found';
         errorMessage.value = `Looks like seller ${sellerId} isn't registered with us yet. Try selecting a different seller.`;
@@ -993,4 +986,3 @@ const formatCurrency = (value) => {
   }
 }
 </style>
-
